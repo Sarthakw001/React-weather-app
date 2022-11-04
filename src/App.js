@@ -13,7 +13,6 @@ function App() {
 
   const [form, setForm] = useState({
     city: "",
-    country: "",
   });
 
   const [weather, setWeather] = useState({});
@@ -28,22 +27,19 @@ function App() {
     let name = e.target.name;
     let value = e.target.value;
 
-    if (name == "city") {
+    if (name === "city") {
       setForm({ ...form, city: value });
-    }
-    if (name == "country") {
-      setForm({ ...form, country: value });
     }
   };
 
   const getWeatherfromForm = async (e) => {
     e.preventDefault();
-    if (form.city == "") {
+    if (form.city === "") {
       toast("Please Enter the City Name");
     } else {
       visibleInstruction();
       const data = await fetch(
-        `https://api.openweathermap.org/data/2.5/weather?q=${form.city},${form.country}&appid=${APIkey}`
+        `https://api.openweathermap.org/data/2.5/weather?q=${form.city}&appid=${APIkey}`
       )
         .then((res) => {
           return res.json();
@@ -66,7 +62,7 @@ function App() {
 
       {visible && <WeatherNotAvailable />}
 
-      {weather.data != undefined ? (
+      {weather.data !== undefined ? (
         <Displayweather data={weather.data} />
       ) : null}
     </Wrapper>

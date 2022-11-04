@@ -5,9 +5,9 @@ function Displayweather({ data }) {
   console.log(data);
 
   const iconurl = `http://openweathermap.org/img/wn/${
-    data.cod != 404 ? data.weather[0].icon : null
+    data.cod !== 404 ? data.weather[0].icon : null
   }.png`;
-  return data.cod != 404 ? (
+  return data.cod !== 404 ? (
     <React.Fragment>
       <div className="displayweather">
         <div className="city-info">
@@ -15,7 +15,7 @@ function Displayweather({ data }) {
           <p className="date">as of {new Date().toDateString()}</p>
           {Math.floor(data.main.temp - 273.15)}
           <sup>o</sup> <span style={{ fontSize: "22px" }}>C</span>
-          <img src={iconurl} />
+          <img src={iconurl} alt="" />
           <span style={{ fontSize: "20px" }}>{data.weather[0].main}</span>
         </div>
         <div className="info">

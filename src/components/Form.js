@@ -11,13 +11,6 @@ const Form = ({ handleChange, getWeather }) => {
           onChange={handleChange}
           required
         ></input>
-        <input
-          name="country"
-          type="text"
-          placeholder="country"
-          onChange={handleChange}
-          required
-        ></input>
         <button className="getweather" onClick={getWeather}>
           Submit
         </button>
