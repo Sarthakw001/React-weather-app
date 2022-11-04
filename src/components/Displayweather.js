@@ -4,10 +4,8 @@ import "./displayweather.css";
 function Displayweather({ data }) {
   console.log(data);
 
-  const iconurl = `http://openweathermap.org/img/wn/${
-    data.cod !== 404 ? data.weather[0].icon : null
-  }.png`;
-  return data.cod !== 404 ? (
+  const iconurl = `http://openweathermap.org/img/wn/${data.cod !== '404' ? data.weather[0].icon : null}.png`;
+  return data.cod !== '404' ? (
     <React.Fragment>
       <div className="displayweather">
         <div className="city-info">
